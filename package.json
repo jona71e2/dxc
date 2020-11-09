@@ -1,0 +1,23 @@
+{
+  "name": "dxc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel *.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jona71e2/dxc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jona71e2/dxc/issues"
+  },
+  "homepage": "https://github.com/jona71e2/dxc#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
