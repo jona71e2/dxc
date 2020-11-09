@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "dxcRegular";
+  src: url("/GT-Walsheim-Pro-Regular.a2465671.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "dxcBold";
+  src: url("/GT-Walsheim-Pro-Bold.8c6708dc.woff") format("woff");
+  font-display: swap;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 64px;
+  line-height: 68px;
+  font-family: dxcBold;
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  font-family: dxcBold;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 40px;
+  font-family: dxcBold;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: dxcBold;
+}
+
+p {
+  font-size: 16px;
+  line-height: 26px;
+  font-family: dxcRegular;
+}
+
+/*# sourceMappingURL=/style.97fcb138.css.map */
