@@ -1,2 +1,2 @@
-import { key, endpoint } from "./modules/config";
-console.log(key, endpoint);
+import * as config from "./modules/config";
+console.log(config.key, config.endpoint);
