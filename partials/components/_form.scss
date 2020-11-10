@@ -1,0 +1,465 @@
+@use 'partials/base/vars' as var;
+
+$breakpoint-tablet: 500px;
+$breakpoint-desktop: 800px;
+
+#contact-us {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .form-container {
+    width: 95%;
+    height: 96vh;
+    background-color: var.$primaryWhite;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: scroll;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      width: 450px;
+      min-height: 750px;
+      height: 750px;
+    }
+
+    @media screen and (min-width: $breakpoint-desktop) {
+      width: 750px;
+      height: 750px;
+    }
+
+    .form-inner {
+      width: 100%;
+      height: 100%;
+      padding: 3% 8% 10px 8%;
+      position: relative;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        padding: 10% 10% 10px 10%;
+      }
+
+      @media screen and (min-width: $breakpoint-desktop) {
+        padding: 10% 20% 10px 20%;
+      }
+    }
+
+    .form-info {
+      width: 100%;
+
+      .form-heading {
+        display: flex;
+        align-items: center;
+
+        .dxc-triagle {
+          width: 0;
+          height: 0;
+
+          border-top: 15px solid transparent;
+          border-bottom: 15px solid transparent;
+          border-left: 25px solid var.$primaryPurple;
+          margin-right: 10px;
+
+          @media screen and (min-width: $breakpoint-desktop) {
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+            border-left: 40px solid var.$primaryPurple;
+          }
+        }
+
+        h1 {
+          font-size: 34px;
+
+          @media screen and (min-width: $breakpoint-desktop) {
+            font-size: 64px;
+          }
+        }
+      }
+
+      .info-paragraph {
+        margin-top: 0px;
+      }
+
+      .help-text {
+        margin-top: 0;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          margin-top: 20px;
+        }
+      }
+
+      .help-link {
+        margin-left: 0;
+        font-family: dxcBold;
+        color: var.$secondaryBlack;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          margin-left: 6px;
+        }
+      }
+
+      .help-link::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 2px;
+        bottom: 0px;
+        background-color: var.$secondaryBlue;
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+      }
+    }
+
+    form {
+      width: 100%;
+
+      fieldset {
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        border: none;
+        position: relative;
+      }
+
+      .input-container {
+        width: 100%;
+      }
+
+      input {
+        width: 100%;
+        height: 50px;
+        background-color: #f5f5f5;
+        border: none;
+        margin: 12px 0;
+        padding: 2px 15px;
+        border: 2px solid #f5f5f5;
+        transition: 0.3s all ease-in-out;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          padding: 30px;
+          margin: 15px 0;
+        }
+      }
+
+      input:focus {
+        background-color: var.$primaryWhite;
+        border: 2px solid var.$secondaryBlack;
+        outline: none;
+      }
+
+      .invalid {
+        background-color: var.$errorFill;
+        border: 2px solid red;
+      }
+
+      select {
+        width: 100%;
+        height: 50px;
+        margin: 12px 0;
+        // padding: 30px;
+        border: 2px solid var.$secondaryBlack;
+        font-family: dxcBold;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          height: 64px;
+          margin: 15px 0;
+        }
+      }
+
+      select:focus {
+        outline: 0;
+      }
+
+      .tos-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 150px;
+        // margin-top: 10px;
+
+        .checkbox-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        label {
+          margin-left: 10px;
+          font-size: 12px;
+          font-family: dxcRegular;
+        }
+      }
+
+      textarea {
+        resize: none;
+        font-family: dxcRegular;
+        border: 2px solid var.$secondaryBlack;
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        margin: 15px 0;
+      }
+
+      input[type="checkbox"] {
+        width: 25px;
+        height: 25px;
+        border-radius: 0;
+      }
+
+      .error {
+        margin: -16px 0 0 0;
+        font-size: 14px;
+        color: var.$errorText;
+      }
+
+      .error-fade {
+        animation: error_fade_kf 0.3s ease-out 1 forwards;
+      }
+
+      .hide {
+        display: none;
+      }
+    }
+
+    .form-progress {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 11%;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        bottom: 17.5%;
+      }
+
+      p {
+        font-family: dxcBold;
+        color: var.$secondaryDarkGray;
+        letter-spacing: 2px;
+        position: absolute;
+        left: 10%;
+
+        @media screen and (min-width: $breakpoint-desktop) {
+          left: 20%;
+        }
+      }
+
+      .dot-container {
+        align-self: flex-start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .dot {
+          width: 20px;
+          height: 20px;
+          margin: 0 7px;
+          border-radius: 50%;
+          border: 2px solid var.$secondaryLightGray;
+        }
+
+        .checked {
+          animation: checked_kf 0.4s ease-in-out 1 forwards;
+        }
+
+        .not-checked {
+          animation: not_checked_kf 0.4s ease-in-out 1 forwards;
+        }
+
+        .checkmark {
+          width: 20px;
+          height: 20px;
+          margin: 0 7px;
+          background-image: url("images/check.svg");
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      position: absolute;
+      right: 10%;
+      bottom: 3%;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        bottom: 7%;
+        right: 20%;
+      }
+    }
+
+    .back,
+    .next {
+      padding: 12px 40px;
+      border: none;
+      text-transform: uppercase;
+      background-color: var.$primaryPurple;
+      font-family: dxcBold;
+      font-size: 14px;
+      color: var.$primaryWhite;
+      transition: 0.4s all ease-in-out;
+      cursor: pointer;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        font-size: 16px;
+      }
+    }
+
+    .back {
+      font-family: dxcRegular;
+      background-color: var.$primaryWhite;
+      color: var.$secondaryBlack;
+    }
+
+    .back:disabled {
+      color: var.$secondaryLightGray;
+      cursor: initial;
+    }
+
+    .complete-container {
+      width: 100%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        margin-top: 50px;
+      }
+
+      .big-checkmark {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: var.$primaryPurple;
+        background-image: url("images/check-white.svg");
+        background-size: 65%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          width: 250px;
+          height: 250px;
+        }
+      }
+
+      .form-actions {
+        margin-top: 68px;
+        align-self: flex-end;
+      }
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .primary-exit {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      width: 18px;
+      height: 18px;
+      font-family: dxcRegular;
+      color: var.$secondaryDarkGray;
+      background-color: transparent;
+      border: none;
+      transition: 0.4s all ease-in-out;
+
+      background-image: url("/images/close.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      cursor: pointer;
+    }
+
+    .primary-exit:hover {
+      transform: scale(1.02);
+      color: var.$secondaryBlack;
+    }
+
+    .primary-exit:focus {
+      outline: none;
+    }
+  }
+}
+
+.hide-form {
+  animation: hide_form_kf 0.6s ease-in-out 1 both;
+}
+
+@keyframes error_fade_kf {
+  0% {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes checked_kf {
+  0% {
+  }
+  100% {
+    background-color: var.$primaryPurple;
+    border: 2px solid var.$primaryPurple;
+  }
+}
+
+@keyframes not_checked_kf {
+  0% {
+    background-color: var.$primaryPurple;
+    border: 2px solid var.$primaryPurple;
+  }
+  100% {
+  }
+}
+
+@keyframes hide_form_kf {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+// .form-container {
+//   width: 750px;
+//   height: 750px;
+//   background-color: var.$primaryWhite;
+
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   position: relative;
+
+//   .form-inner {
+//     width: 100%;
+//     height: 100%;
+//     padding: 10% 20% 10px 20%;
+//     position: relative;
+//   }
+// }
