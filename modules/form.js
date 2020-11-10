@@ -9,6 +9,8 @@ const formComplete = document.querySelector(".complete-container");
 const nextStageBtn = document.querySelectorAll(".next");
 const prevStageBtn = document.querySelectorAll(".back");
 
+const checkboxInput = document.querySelector(".checkbox-input");
+
 // SUPPRESS BUILT-IN VALIDATION
 form.setAttribute("novalidate", true);
 form.addEventListener("submit", (e) => {
@@ -21,6 +23,10 @@ contactInput.forEach((input) => {
   input.addEventListener("blur", (e) => {
     inputValidate(e);
   });
+
+  input.addEventListener("input", (e) => {
+    inputValidate(e);
+  });
 });
 
 // ADD EVENTLISTENERS TO NEXT/BACK BUTTONS
@@ -29,8 +35,6 @@ nextStageBtn.forEach((btn) => btn.addEventListener("click", nextStage));
 
 // DECIDE STAGE TO GO TO
 function nextStage() {
-  //e.preventDefault();
-
   if (form.checkValidity()) {
     prevStageBtn.forEach((btn) => (btn.disabled = false));
     if (stage2.classList.contains("hide") && stage3.classList.contains("hide")) {
@@ -41,15 +45,25 @@ function nextStage() {
       submitForm();
     }
   } else {
-    form.reportValidity();
-
-    // contactInput.forEach((input) => {
-    //   // inputValidate(input);
-    //   console.log(input, input.validity);
-    //   input.addEventListener("input", (e) => {
-    //     console.log(e.target.value);
-    //   });
-    // });
+    // following code about events was taken from Stack Overflow
+    if (!stage3.classList.contains("hide")) {
+      const checkboxEvent = new Event("change", {
+        bubbles: true,
+        cancelable: true,
+      });
+      if (!checkboxInput.parentNode.parentNode.querySelector("p")) {
+        checkboxInput.dispatchEvent(checkboxEvent);
+        console.log(checkboxInput.value);
+      }
+    } else {
+      contactInput.forEach((input) => {
+        const inputEvent = new Event("blur", {
+          bubbles: true,
+          cancelable: true,
+        });
+        input.dispatchEvent(inputEvent);
+      });
+    }
   }
 }
 
@@ -152,8 +166,8 @@ function showCompleteScreen() {
 
 // ADD VALIDATION TO CHECKBOX
 checkboxValidate();
+
 function checkboxValidate() {
-  const checkboxInput = document.querySelector(".checkbox-input");
   checkboxInput.addEventListener("change", (e) => {
     console.log(e.target.value);
     if (e.target.checkValidity()) {
@@ -171,6 +185,7 @@ function checkboxValidate() {
         const errMsg = document.createElement("p");
         errMsg.textContent = "Accepter venligst vores e-mail-politik";
         errMsg.classList.add("error");
+        errMsg.classList.add("error-fade");
         e.target.parentNode.parentNode.appendChild(errMsg);
       }
     }
