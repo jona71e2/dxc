@@ -8,12 +8,13 @@ $breakpoint-desktop: 800px;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
 
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
+  overflow: scroll;
 
   .form-container {
     width: 95%;
@@ -402,8 +403,32 @@ $breakpoint-desktop: 800px;
   }
 }
 
+.open-form {
+  animation: open_form_kf 0.6s ease-in-out 1 both;
+}
+
+@keyframes open_form_kf {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .hide-form {
-  animation: hide_form_kf 0.6s ease-in-out 1 both;
+  animation: hide_form_kf 0.6s ease-in-out 1 forwards;
+}
+
+@keyframes hide_form_kf {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes error_fade_kf {
@@ -433,16 +458,6 @@ $breakpoint-desktop: 800px;
     border: 2px solid var.$primaryPurple;
   }
   100% {
-  }
-}
-
-@keyframes hide_form_kf {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 

@@ -1,5 +1,9 @@
 import * as config from "/modules/config.js";
+import * as local from "/modules/local-storage.js";
 console.log(config);
+
+local.decideCta();
+console.log(local);
 
 const form = document.querySelector("form");
 const stage1 = document.querySelector("#stage1");
@@ -166,7 +170,6 @@ function showCompleteScreen() {
 
 // ADD VALIDATION TO CHECKBOX
 checkboxValidate();
-
 function checkboxValidate() {
   checkboxInput.addEventListener("change", (e) => {
     console.log(e.target.value);
@@ -228,9 +231,13 @@ document.querySelectorAll(".close").forEach((close) => {
 // CLOSE FORM
 function closeForm() {
   document.querySelector("#contact-us").classList.add("hide-form");
-  document.querySelector("#contact-us").addEventListener("animationend", () => {
+  document.querySelector("#contact-us").addEventListener("animationend", removeFadeAni);
+
+  function removeFadeAni() {
     document.querySelector("#contact-us").style.display = "none";
-  });
+    document.querySelector("#contact-us").classList.remove("hide-form");
+    document.querySelector("#contact-us").removeEventListener("animationend", removeFadeAni);
+  }
 }
 
 // POST DATA TO DATABASE
@@ -246,5 +253,5 @@ function post(data) {
     body: postData,
   })
     .then((res) => res.json())
-    .then(console.log("post to database complete!"));
+    .then(local.storeFormStatus);
 }
