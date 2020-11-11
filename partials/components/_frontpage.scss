@@ -25,6 +25,9 @@ body {
   background-color: var.$secondaryLightGray;
   padding: 5rem;
   text-align: center;
+  video {
+    margin-bottom: 2rem;
+  }
 }
 
 #splash {
@@ -139,7 +142,7 @@ h1 {
   //   font-size: clamp(1rem, -0.43835606 + 0.06575342vw, 4rem);
   //   font-size: clamp(1rem, -0.875 + 8.3333vw, 3.5rem);
   //   font-size: clamp(1rem, -0.875rem + 8.333333vw, 3.5rem);
-  font-size: clamp(1rem, -1.1212 + 9.697vw, 4rem);
+  font-size: clamp(1.2rem, -1.1212 + 9.697vw, 4rem);
   line-height: 68px;
   //   overflow: hidden;
   //   white-space: nowrap;
@@ -178,6 +181,10 @@ h3 {
     //background-color: blue;
     height: auto;
   }
+  #solution {
+    //background-color: blue;
+    height: auto;
+  }
 
   #splash > .image {
     height: 50vh;
@@ -192,6 +199,7 @@ h3 {
     width: 100%;
     background-image: url(/images/dxc-photo-cloud.jpg);
     clip-path: none;
+    grid-row: 2;
   }
 
   #partner > .image {
@@ -206,6 +214,7 @@ h3 {
     width: 100%;
     background-image: url(/images/dxc-photo-cloud.jpg);
     clip-path: none;
+    grid-row: 2;
   }
 }
 
@@ -240,7 +249,7 @@ img {
 
 #contact {
   background-color: var.$secondaryBlack;
-  padding: 5rem;
+  padding: 2rem;
   h2,
   p {
     color: var.$primaryWhite;

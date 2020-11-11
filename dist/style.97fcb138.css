@@ -70,6 +70,9 @@ body {
   padding: 5rem;
   text-align: center;
 }
+#video video {
+  margin-bottom: 2rem;
+}
 
 #splash .text {
   display: flex;
@@ -173,7 +176,7 @@ button:hover {
 }
 
 h1 {
-  font-size: clamp(1rem, 8.5758vw, 4rem);
+  font-size: clamp(1.2rem, 8.5758vw, 4rem);
   line-height: 68px;
 }
 
@@ -198,6 +201,10 @@ h3 {
     height: auto;
   }
 
+  #solution {
+    height: auto;
+  }
+
   #splash > .image {
     height: 50vh;
     width: 100%;
@@ -211,6 +218,7 @@ h3 {
     width: 100%;
     background-image: url(/dxc-photo-cloud.9067e37e.jpg);
     clip-path: none;
+    grid-row: 2;
   }
 
   #partner > .image {
@@ -225,6 +233,7 @@ h3 {
     width: 100%;
     background-image: url(/dxc-photo-cloud.9067e37e.jpg);
     clip-path: none;
+    grid-row: 2;
   }
 }
 #blog {
@@ -252,7 +261,7 @@ img {
 
 #contact {
   background-color: #000;
-  padding: 5rem;
+  padding: 2rem;
 }
 #contact h2,
 #contact p {
