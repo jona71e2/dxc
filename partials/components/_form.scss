@@ -172,6 +172,7 @@ $breakpoint-desktop: 800px;
         height: 50px;
         margin: 12px 0;
         // padding: 30px;
+        text-indent: 30px;
         border: 2px solid var.$secondaryBlack;
         font-family: dxcBold;
 
@@ -288,7 +289,7 @@ $breakpoint-desktop: 800px;
           width: 20px;
           height: 20px;
           margin: 0 7px;
-          background-image: url("images/check.svg");
+          background-image: url("/form-images/check.svg");
         }
       }
     }
@@ -352,7 +353,7 @@ $breakpoint-desktop: 800px;
         height: 200px;
         border-radius: 50%;
         background-color: var.$primaryPurple;
-        background-image: url("images/check-white.svg");
+        background-image: url("/form-images/check-white.svg");
         background-size: 65%;
         background-position: center;
         background-repeat: no-repeat;
@@ -385,7 +386,7 @@ $breakpoint-desktop: 800px;
       border: none;
       transition: 0.4s all ease-in-out;
 
-      background-image: url("/images/close.svg");
+      background-image: url("/form-images/close.svg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;

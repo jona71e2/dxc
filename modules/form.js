@@ -1,9 +1,11 @@
 import * as config from "/modules/config.js";
 import * as local from "/modules/local-storage.js";
-console.log(config);
+import * as rest from "/modules/rest.js";
 
+//console.log(local);
+//console.log(config);
+//console.log(rest);
 local.decideCta();
-console.log(local);
 
 const form = document.querySelector("form");
 const stage1 = document.querySelector("#stage1");
@@ -135,11 +137,6 @@ function showStage3() {
 
 // SUBMIT FORM DATA
 function submitForm() {
-  // form.submit();
-  showCompleteScreen();
-  form.disabled = true;
-  form.classList.add("hide");
-
   const contactData = {
     first_name: form.elements.first_name.value,
     last_name: form.elements.last_name.value,
@@ -150,12 +147,18 @@ function submitForm() {
     message: form.elements.message.value,
   };
 
-  post(contactData);
+  local.getContactInfo(contactData);
+  rest.post(contactData); // POST DATA TO DATABASE
+
+  form.disabled = true;
+  form.classList.add("hide");
+  showCompleteScreen(contactData);
+  // form.submit();
   form.reset();
 }
 
 // SHOW FORM COMPLETE
-function showCompleteScreen() {
+function showCompleteScreen(contactData) {
   formComplete.classList.remove("hide");
   document.querySelector(".form-progress").classList.add("hide");
   document.querySelector(".form-actions").classList.add("hide");
@@ -163,8 +166,9 @@ function showCompleteScreen() {
   nextStageBtn.forEach((btn) => btn.removeEventListener("click", nextStage));
 
   document.querySelector(".form-heading h1").textContent = `Tak, ${form.elements.first_name.value}!`;
-  document.querySelector(".info-paragraph").textContent =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum culpa blanditiis veniam enim eveniet labore, dolor ad delectus reprehenderit qui ipsum inventore aspernatur unde sunt consectetur soluta cumque quidem harum.";
+  document.querySelector(
+    ".info-paragraph"
+  ).textContent = `Mange tak for henvendelsen. Vi er glade for du vil høre mere om, hvordan vi kan hjælpe dig. Du vil høre fra os snarest på mail: ${contactInput.email}`;
   document.querySelector(".help-text").classList.add("hide");
 }
 
@@ -172,7 +176,7 @@ function showCompleteScreen() {
 checkboxValidate();
 function checkboxValidate() {
   checkboxInput.addEventListener("change", (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     if (e.target.checkValidity()) {
       e.target.classList.remove("invalid");
       e.target.classList.add("valid");
@@ -197,7 +201,7 @@ function checkboxValidate() {
 
 // VALIDATE ALL INPUT FIELDS
 function inputValidate(e) {
-  console.log(e.target.value);
+  //console.log(e.target.value);
   if (e.target.checkValidity()) {
     e.target.classList.remove("invalid");
     e.target.classList.add("valid");
@@ -216,6 +220,10 @@ function inputValidate(e) {
       errMsg.classList.add("error-fade");
       if (e.target.type === "email") {
         errMsg.textContent = "Indtast venligst en gyldig email-adresse";
+      }
+
+      if (e.target.type === "select-one") {
+        errMsg.textContent = "Vælg venligst et land";
       }
       e.target.parentNode.appendChild(errMsg);
     }
@@ -238,20 +246,4 @@ function closeForm() {
     document.querySelector("#contact-us").classList.remove("hide-form");
     document.querySelector("#contact-us").removeEventListener("animationend", removeFadeAni);
   }
-}
-
-// POST DATA TO DATABASE
-function post(data) {
-  const postData = JSON.stringify(data);
-  fetch(config.endpoint, {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": config.key,
-      "cache-control": "no-cache",
-    },
-    body: postData,
-  })
-    .then((res) => res.json())
-    .then(local.storeFormStatus);
 }
