@@ -1,50 +1,6 @@
-@font-face {
-  font-family: "dxcRegular";
-  src: url("/GT-Walsheim-Pro-Regular.a2465671.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "dxcBold";
-  src: url("/GT-Walsheim-Pro-Bold.8c6708dc.woff") format("woff");
-  font-display: swap;
-}
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-}
+@use "partials/base/vars" as var;
 
-h1 {
-  font-size: 64px;
-  line-height: 68px;
-  font-family: dxcBold;
-}
-
-h2 {
-  font-size: 46px;
-  line-height: 54px;
-  font-family: dxcBold;
-}
-
-h3 {
-  font-size: 30px;
-  line-height: 40px;
-  font-family: dxcBold;
-}
-
-h4 {
-  font-size: 16px;
-  line-height: 24px;
-  font-family: dxcBold;
-}
-
-p {
-  font-size: 16px;
-  line-height: 26px;
-  font-family: dxcRegular;
-}
+//// HERO !!! !!! !!! !!!
 
 * {
   box-sizing: border-box;
@@ -52,7 +8,7 @@ p {
 
 #hero {
   width: 100%;
-  background-color: #d9d9d9;
+  background-color: var.$secondaryLightGray;
   height: fit-content;
   padding: 1rem;
   text-align: center;
@@ -64,51 +20,54 @@ p {
 #brochure,
 #partner {
   display: grid;
+  //   grid-template-columns: 1fr 1fr;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   width: 100%;
   height: 80vh;
-}
-#splash .text,
-#brochure .text,
-#partner .text {
-  margin: auto;
-}
-#splash .text p,
-#brochure .text p,
-#partner .text p {
-  margin: 3rem auto;
-}
-#splash .text h2,
-#brochure .text h2,
-#partner .text h2 {
-  margin: 3rem auto;
+
+  .text {
+    margin: auto;
+    p {
+      margin: 3rem auto;
+    }
+    h2 {
+      margin: 3rem auto;
+    }
+  }
 }
 
 #splash > .image {
-  background-image: url(/Saadan-letter-DXC-din-Dynamics-365-implementering.052e98dd.jpg);
+  //   grid-column: 1;
+  //   grid-row: 1;
+  background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
   background-size: cover;
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 #brochure > .image {
-  background-image: url(/dxc-photo-cloud.9067e37e.jpg);
+  //   grid-column: 1;
+  //   grid-row: 1;
+  background-image: url(/images/dxc-photo-cloud.jpg);
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
 
 #partner > .image {
-  background-image: url(/Saadan-letter-DXC-din-Dynamics-365-implementering.052e98dd.jpg);
+  //   grid-column: 1;
+  //   grid-row: 1;
+  background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
   background-size: cover;
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+// REUSABLES
+
 .triangle {
-  background-color: #6f2c91;
+  background-color: var.$primaryPurple;
   width: 46px;
   height: 46px;
   clip-path: polygon(0 0, 0% 100%, 100% 50%);
 }
-
 .header-triangle {
   display: flex;
   align-items: center;
@@ -121,8 +80,8 @@ button {
   padding: 22px 50px;
   margin: 0;
   text-decoration: none;
-  background: #6f2c91;
-  color: #fff;
+  background: var.$primaryPurple;
+  color: var.$primaryWhite;
   cursor: pointer;
   text-align: center;
   transition: 0.1s;
@@ -133,27 +92,40 @@ button {
 }
 
 button:hover {
-  background: #fff;
-  color: #000;
-  border: #6f2c91 solid 2px;
+  background: var.$primaryWhite;
+  color: var.$secondaryBlack;
+  border: var.$primaryPurple solid 2px;
 }
 
 h1 {
-  font-size: clamp(1rem, 8.5758vw, 4rem);
+  //   font-size: clamp(1rem, -0.43835606 + 0.06575342vw, 4rem);
+  //   font-size: clamp(1rem, -0.875 + 8.3333vw, 3.5rem);
+  //   font-size: clamp(1rem, -0.875rem + 8.333333vw, 3.5rem);
+  font-size: clamp(1rem, -1.1212 + 9.697vw, 4rem);
   line-height: 68px;
   overflow: hidden;
   white-space: nowrap;
 }
 
+//   .triangle {
+//     background-color: var.$primaryPurple;
+//     width: 46px;
+//     height: 46px;
+//     clip-path: polygon(0 0, 0% 100%, 100% 50%);
+//   }
+//   .header-triangle {
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+//   }
+
 @media (max-width: 1000px) {
   #splash {
     background-color: yellow;
   }
-
   #brochure {
     background-color: green;
   }
-
   #partner {
     background-color: blue;
   }
@@ -161,24 +133,25 @@ h1 {
   #splash > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/Saadan-letter-DXC-din-Dynamics-365-implementering.052e98dd.jpg);
+    background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
     clip-path: none;
   }
 
   #brochure > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/dxc-photo-cloud.9067e37e.jpg);
+    background-image: url(/images/dxc-photo-cloud.jpg);
     clip-path: none;
   }
 
   #partner > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/Saadan-letter-DXC-din-Dynamics-365-implementering.052e98dd.jpg);
+    background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
     clip-path: none;
   }
 }
+
 #blog {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -193,5 +166,3 @@ article {
 img {
   width: 100%;
 }
-
-/*# sourceMappingURL=/style.97fcb138.css.map */

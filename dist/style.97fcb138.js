@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"/Users/nicolaijorgensen/OneDrive - Københavns Erhvervsakademi/3. SEMESTER/t14c_forms_react/DXC/web/fonts/GT-Walsheim-Pro-Regular.woff":[["GT-Walsheim-Pro-Regular.a2465671.woff","fonts/GT-Walsheim-Pro-Regular.woff"],"fonts/GT-Walsheim-Pro-Regular.woff"],"/Users/nicolaijorgensen/OneDrive - Københavns Erhvervsakademi/3. SEMESTER/t14c_forms_react/DXC/web/fonts/GT-Walsheim-Pro-Bold.woff":[["GT-Walsheim-Pro-Bold.8c6708dc.woff","fonts/GT-Walsheim-Pro-Bold.woff"],"fonts/GT-Walsheim-Pro-Bold.woff"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"/Users/jonasbogh/Desktop/kea/14_forms_and_react/dxc/fonts/GT-Walsheim-Pro-Regular.woff":[["GT-Walsheim-Pro-Regular.a2465671.woff","fonts/GT-Walsheim-Pro-Regular.woff"],"fonts/GT-Walsheim-Pro-Regular.woff"],"/Users/jonasbogh/Desktop/kea/14_forms_and_react/dxc/fonts/GT-Walsheim-Pro-Bold.woff":[["GT-Walsheim-Pro-Bold.8c6708dc.woff","fonts/GT-Walsheim-Pro-Bold.woff"],"fonts/GT-Walsheim-Pro-Bold.woff"],"/Users/jonasbogh/Desktop/kea/14_forms_and_react/dxc/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg":[["Saadan-letter-DXC-din-Dynamics-365-implementering.052e98dd.jpg","images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg"],"images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg"],"/Users/jonasbogh/Desktop/kea/14_forms_and_react/dxc/images/dxc-photo-cloud.jpg":[["dxc-photo-cloud.9067e37e.jpg","images/dxc-photo-cloud.jpg"],"images/dxc-photo-cloud.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58206" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62624" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
