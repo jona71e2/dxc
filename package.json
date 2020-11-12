@@ -4,7 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "parcel *.html --open"
+    "start": "parcel *.html --open",
+    "build": "parcel build *.html --public-url ./"
   },
   "repository": {
     "type": "git",
