@@ -20,8 +20,6 @@ body {
   margin: 0;
 }
 
-// HERO
-
 #hero {
   width: 100%;
   background-color: var.$secondaryLightGray;
@@ -120,7 +118,7 @@ body {
 }
 
 #solution > .image {
-  background-image: url(/images_landing/dxc-photo-cloud.jpg);
+  background-image: url(/images_landing/dxc-asset-1.jpg);
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
@@ -183,7 +181,7 @@ body {
   #solution > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/images_landing/dxc-photo-cloud.jpg);
+    background-image: url(/images_landing/dxc-asset-1.jpg);
     clip-path: none;
     grid-row: 2;
   }
@@ -205,13 +203,6 @@ body {
     height: auto;
   }
 }
-
-// #blog {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-//   grid-gap: 2rem;
-//   padding: 5rem 3rem;
-// }
 
 #blog {
   display: grid;
@@ -266,21 +257,3 @@ body {
     border: var.$primaryPurple solid 2px;
   }
 }
-
-// @media only screen and (max-width: 800px) {
-//   h1 {
-//     font-size: 34px;
-//   }
-//   h2 {
-//     font-size: 28px;
-//   }
-//   h3 {
-//     font-size: 20px;
-//   }
-//   h4 {
-//     font-size: 16px;
-//   }
-//   p {
-//     font-size: 18px;
-//   }
-// }

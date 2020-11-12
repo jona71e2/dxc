@@ -171,7 +171,7 @@ body {
 }
 
 #solution > .image {
-  background-image: url(/dxc-photo-cloud.ac8e9e19.jpg);
+  background-image: url(/dxc-asset-1.7ca91f7d.jpg);
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
@@ -239,7 +239,7 @@ body {
   #solution > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/dxc-photo-cloud.ac8e9e19.jpg);
+    background-image: url(/dxc-asset-1.7ca91f7d.jpg);
     clip-path: none;
     grid-row: 2;
   }
