@@ -1,0 +1,259 @@
+@use "partials/base/vars" as var;
+
+* {
+  box-sizing: border-box;
+  h1 {
+    font-size: clamp(1.2rem, -1.1212 + 9.697vw, 4rem);
+    line-height: 68px;
+  }
+
+  h2 {
+    font-size: clamp(0.8rem, -1.1212 + 6.697vw, 46px);
+  }
+
+  h3 {
+    font-size: clamp(0.7rem, -1.1212 + 5.697vw, 30px);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#hero {
+  width: 100%;
+  background-color: var.$secondaryLightGray;
+  height: fit-content;
+  padding: 5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#video {
+  width: 100%;
+  background-color: var.$secondaryLightGray;
+  padding: 5rem;
+  text-align: center;
+  video {
+    margin-bottom: 2rem;
+  }
+}
+
+#splash {
+  .text {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .logo {
+    img {
+      width: 50%;
+    }
+  }
+}
+
+#splash,
+#brochure,
+#partner,
+#solution {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  width: 100%;
+  height: auto;
+  height: 90vh;
+
+  .text {
+    margin: auto;
+    padding: 1rem;
+    p {
+      margin: 3rem auto;
+      overflow-wrap: break-word;
+    }
+    h2 {
+      margin: 3rem auto;
+    }
+  }
+  button {
+    display: inline-block;
+    border: none;
+    padding: 22px 50px;
+    margin: 2rem 0;
+    text-decoration: none;
+    background: var.$primaryPurple;
+    color: var.$primaryWhite;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.1s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: dxcRegular;
+    font-size: 20px;
+  }
+
+  button:hover {
+    background: transparent;
+    color: var.$secondaryBlack;
+    border: var.$primaryPurple solid 2px;
+  }
+}
+
+#splash > .image {
+  background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+  background-size: cover;
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+#brochure > .image {
+  background-image: url(/images_landing/dxc-photo-cloud.jpg);
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+}
+
+#partner > .image {
+  background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+  background-size: cover;
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+#solution > .image {
+  background-image: url(/images_landing/dxc-asset-1.jpg);
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+}
+
+// REUSABLES
+
+.triangle {
+  background-color: var.$primaryPurple;
+  width: 46px;
+  height: 46px;
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+.header-triangle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 1000px) {
+  #splash,
+  #brochure,
+  #partner,
+  #solution {
+    height: auto;
+    .text {
+      display: block;
+      margin: 1rem;
+    }
+    button {
+      margin: auto;
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+
+  #splash > .image {
+    height: 50vh;
+    width: 100%;
+    background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+    background-size: cover;
+    background-position: 50% 100%;
+    clip-path: none;
+  }
+
+  #brochure > .image {
+    height: 50vh;
+    width: 100%;
+    background-image: url(/images_landing/dxc-photo-cloud.jpg);
+    clip-path: none;
+    grid-row: 2;
+  }
+
+  #partner > .image {
+    height: 50vh;
+    width: 100%;
+    background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+    clip-path: none;
+  }
+
+  #solution > .image {
+    height: 50vh;
+    width: 100%;
+    background-image: url(/images_landing/dxc-asset-1.jpg);
+    clip-path: none;
+    grid-row: 2;
+  }
+  #hero {
+    padding: 2rem;
+  }
+  video {
+    width: 450px;
+    height: 350px;
+    margin: auto;
+  }
+}
+
+@media (max-height: 500px) {
+  #splash,
+  #brochure,
+  #partner,
+  #solution {
+    height: auto;
+  }
+}
+
+#blog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 5rem 3rem;
+  background-color: var.$secondaryLightGray;
+  h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  article {
+    cursor: pointer;
+  }
+  img {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: var.$secondaryBlack;
+  }
+}
+
+#contact {
+  background-color: var.$secondaryBlack;
+  padding: 2rem;
+  h2,
+  p {
+    color: var.$primaryWhite;
+    text-align: center;
+  }
+  button {
+    display: block;
+    border: none;
+    padding: 22px 50px;
+    margin: 2rem auto;
+    text-decoration: none;
+    background: var.$primaryPurple;
+    color: var.$primaryWhite;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.1s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: dxcRegular;
+    font-size: 20px;
+  }
+
+  button:hover {
+    background: transparent;
+    color: var.$primaryWhite;
+    border: var.$primaryPurple solid 2px;
+  }
+}
