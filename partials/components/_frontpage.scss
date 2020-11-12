@@ -2,6 +2,18 @@
 
 * {
   box-sizing: border-box;
+  h1 {
+    font-size: clamp(1.2rem, -1.1212 + 9.697vw, 4rem);
+    line-height: 68px;
+  }
+
+  h2 {
+    font-size: clamp(0.8rem, -1.1212 + 6.697vw, 46px);
+  }
+
+  h3 {
+    font-size: clamp(0.7rem, -1.1212 + 5.697vw, 30px);
+  }
 }
 
 body {
@@ -49,7 +61,6 @@ body {
 #partner,
 #solution {
   display: grid;
-  //   grid-template-columns: 1fr 1fr;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   width: 100%;
   height: auto;
@@ -61,42 +72,55 @@ body {
     p {
       margin: 3rem auto;
       overflow-wrap: break-word;
-      //padding: 1rem;
     }
     h2 {
       margin: 3rem auto;
     }
   }
+  button {
+    display: inline-block;
+    border: none;
+    padding: 22px 50px;
+    margin: 2rem 0;
+    text-decoration: none;
+    background: var.$primaryPurple;
+    color: var.$primaryWhite;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.1s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: dxcRegular;
+    font-size: 20px;
+  }
+
+  button:hover {
+    background: transparent;
+    color: var.$secondaryBlack;
+    border: var.$primaryPurple solid 2px;
+  }
 }
 
 #splash > .image {
-  //   grid-column: 1;
-  //   grid-row: 1;
-  background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+  background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
   background-size: cover;
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 #brochure > .image {
-  //   grid-column: 1;
-  //   grid-row: 1;
-  background-image: url(/images/dxc-photo-cloud.jpg);
+  background-image: url(/images_landing/dxc-photo-cloud.jpg);
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
 
 #partner > .image {
-  //   grid-column: 1;
-  //   grid-row: 1;
-  background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+  background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
   background-size: cover;
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 #solution > .image {
-  //   grid-column: 1;
-  //   grid-row: 1;
-  background-image: url(/images/dxc-photo-cloud.jpg);
+  background-image: url(/images_landing/dxc-photo-cloud.jpg);
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
 }
@@ -115,89 +139,36 @@ body {
   gap: 1rem;
 }
 
-button {
-  display: inline-block;
-  border: none;
-  padding: 22px 50px;
-  margin: 0;
-  text-decoration: none;
-  background: var.$primaryPurple;
-  color: var.$primaryWhite;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.1s;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  font-family: dxcBold;
-  font-size: 20px;
-}
-
-button:hover {
-  background: var.$primaryWhite;
-  color: var.$secondaryBlack;
-  border: var.$primaryPurple solid 2px;
-}
-
-h1 {
-  //   font-size: clamp(1rem, -0.43835606 + 0.06575342vw, 4rem);
-  //   font-size: clamp(1rem, -0.875 + 8.3333vw, 3.5rem);
-  //   font-size: clamp(1rem, -0.875rem + 8.333333vw, 3.5rem);
-  font-size: clamp(1.2rem, -1.1212 + 9.697vw, 4rem);
-  line-height: 68px;
-  //   overflow: hidden;
-  //   white-space: nowrap;
-}
-
-h2 {
-  font-size: clamp(0.8rem, -1.1212 + 6.697vw, 46px);
-}
-
-h3 {
-  font-size: clamp(0.7rem, -1.1212 + 5.697vw, 30px);
-}
-
-//   .triangle {
-//     background-color: var.$primaryPurple;
-//     width: 46px;
-//     height: 46px;
-//     clip-path: polygon(0 0, 0% 100%, 100% 50%);
-//   }
-//   .header-triangle {
-//     display: flex;
-//     align-items: center;
-//     gap: 1rem;
-//   }
-
 @media (max-width: 1000px) {
-  #splash {
-    height: auto;
-    // width: 100vw;
-  }
-  #brochure {
-    //background-color: green;
-    height: auto;
-  }
-  #partner {
-    //background-color: blue;
-    height: auto;
-  }
+  #splash,
+  #brochure,
+  #partner,
   #solution {
-    //background-color: blue;
     height: auto;
+    .text {
+      display: block;
+      margin: 1rem;
+    }
+    button {
+      margin: auto;
+      display: block;
+      margin-bottom: 2rem;
+    }
   }
 
   #splash > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+    background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
     background-size: cover;
+    background-position: 50% 100%;
     clip-path: none;
   }
 
   #brochure > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/images/dxc-photo-cloud.jpg);
+    background-image: url(/images_landing/dxc-photo-cloud.jpg);
     clip-path: none;
     grid-row: 2;
   }
@@ -205,23 +176,41 @@ h3 {
   #partner > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/images/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
+    background-image: url(/images_landing/Saadan-letter-DXC-din-Dynamics-365-implementering.jpg);
     clip-path: none;
   }
 
   #solution > .image {
     height: 50vh;
     width: 100%;
-    background-image: url(/images/dxc-photo-cloud.jpg);
+    background-image: url(/images_landing/dxc-photo-cloud.jpg);
     clip-path: none;
     grid-row: 2;
   }
+  #hero {
+    padding: 2rem;
+  }
+  video {
+    width: 450px;
+    height: 350px;
+    margin: auto;
+  }
 }
 
-// @media (min-height: 700px) {
-//   section {
-//     height: auto;
-//   }
+@media (max-height: 500px) {
+  #splash,
+  #brochure,
+  #partner,
+  #solution {
+    height: auto;
+  }
+}
+
+// #blog {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+//   grid-gap: 2rem;
+//   padding: 5rem 3rem;
 // }
 
 #blog {
@@ -229,21 +218,20 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
   padding: 5rem 3rem;
-}
-
-article {
-  cursor: pointer;
-}
-
-img {
-  width: 100%;
-}
-
-#blog {
   background-color: var.$secondaryLightGray;
   h1 {
     grid-column: 1 / -1;
     text-align: center;
+  }
+  article {
+    cursor: pointer;
+  }
+  img {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: var.$secondaryBlack;
   }
 }
 
@@ -256,8 +244,26 @@ img {
     text-align: center;
   }
   button {
-    margin: 2rem auto;
     display: block;
+    border: none;
+    padding: 22px 50px;
+    margin: 2rem auto;
+    text-decoration: none;
+    background: var.$primaryPurple;
+    color: var.$primaryWhite;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.1s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: dxcRegular;
+    font-size: 20px;
+  }
+
+  button:hover {
+    background: transparent;
+    color: var.$primaryWhite;
+    border: var.$primaryPurple solid 2px;
   }
 }
 
