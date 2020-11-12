@@ -168,7 +168,7 @@ function showCompleteScreen(contactData) {
   document.querySelector(".form-heading h1").textContent = `Tak, ${form.elements.first_name.value}!`;
   document.querySelector(
     ".info-paragraph"
-  ).textContent = `Mange tak for henvendelsen. Vi er glade for du vil høre mere om, hvordan vi kan hjælpe dig. Du vil høre fra os snarest på mail: ${contactInput.email}`;
+  ).textContent = `Mange tak for henvendelsen. Vi er glade for du vil høre mere om, hvordan vi kan hjælpe dig. Du vil høre fra os snarest på mail: ${contactData.email}`;
   document.querySelector(".help-text").classList.add("hide");
 }
 
