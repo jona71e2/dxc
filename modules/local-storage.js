@@ -46,7 +46,7 @@ function removeFadeAni() {
 function goToBrochure() {
   console.log("form is already filled out");
   updateCount();
-  window.location.href = "/brochure.html";
+  window.location.href = "brochure.html";
 }
 
 function updateCount() {
